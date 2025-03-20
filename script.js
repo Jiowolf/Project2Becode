@@ -11,8 +11,12 @@ const CHECK_FORM__SELECT = document.getElementById("checkForm");
         const TO_DO__SELECT = document.getElementById("checkListToDo");
         const DONE__SELECT = document.getElementById("checkListDone");
 
-        let arrToTransform = [];
-        arrToTransform = JSON.parse(localStorage.getItem('Liste'));
+        function testFinal(){
+            let arrToTransform = [];
+            arrToTransform = JSON.parse(localStorage.getItem('Liste'));
+            return arrToTransform;
+        }
+
 
     // console.log('loczlArr : ',arrToTransform);
     // console.log('loczlArr : ',arrToTransform.length);
@@ -31,17 +35,26 @@ const CHECK_FORM__SELECT = document.getElementById("checkForm");
 // }
 
 
-function LiCreate(){
-    for(let i = 0; i < arrToTransform.length; i++){
+
+async function LiCreate(){
+
+    try {
+        let test = await testFinal();
+        for(let i = 0; i < test.length; i++){
 
 
-        console.log(arrToTransform)
-        // arrToTransform[i].id = `Task${i}`;
-        const NEW_LI = document.createElement("li");
-        NEW_LI.id = `${arrToTransform[i].name}-${i}`;
-
-        LIST__SELECT.appendChild(NEW_LI); // Ajouter le li à la liste
+            // console.log(arrToTransform)
+            // arrToTransform[i].id = `Task${i}`;
+            const NEW_LI = document.createElement("li");
+            NEW_LI.id = `${test[i].name}-${i}`;
+            NEW_LI.innerHTML = test[i].name
+    
+            LIST__SELECT.appendChild(NEW_LI); // Ajouter le li à la liste
+        }
+    } catch (error) {
+        console.log(error);
     }
+    
 }
 
 // SUBMIT__SELECT.addEventListener("click",LiCreate)

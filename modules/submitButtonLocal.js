@@ -6,6 +6,7 @@ export default function submitButtonLocal(selectElementInput, nameForValue){
         name : `${inputValue}`,
         checkBox : false ,
 
+
     }
     listArr.push(objArr)
 
