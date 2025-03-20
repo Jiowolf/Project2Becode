@@ -1,0 +1,4 @@
+quand checkbox activer mettre le tout dans une autre div et ajoute le boutton del(sur PC) a voir tel 
+
+faire 2 array,une de "a faire" et une de "fait", les mettre en deux colone vertical en grid (pas de row?).
+
